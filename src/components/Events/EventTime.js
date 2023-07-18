@@ -1,5 +1,5 @@
 import React from "react";
-import "./EventTime.css"; // Import the CSS file for EventTime styles
+import "./EventTime.css";
 
 function EventTime(props) {
   const fromTimeSubmit = (event) => {
@@ -29,13 +29,30 @@ function EventTime(props) {
 
     return timeOptions.map((time) => {
       const timeValue = parseInt(time, 10);
-      const isDisabled = timeValue <= fromTimeValue;
+      const isDisabled =
+        timeValue <= fromTimeValue ||
+        isTimeRangeOverlapping(fromTimeValue, timeValue);
       return (
         <option key={time} value={time} disabled={isDisabled}>
           {time}:00
         </option>
       );
     });
+  };
+
+  const isTimeRangeOverlapping = (fromTimeValue, toTimeValue) => {
+    const { events } = props;
+    for (const event of events) {
+      const eventFromTime = parseInt(event.from, 10);
+      const eventToTime = parseInt(event.to, 10);
+      if (
+        (fromTimeValue >= eventFromTime && fromTimeValue < eventToTime) ||
+        (toTimeValue > eventFromTime && toTimeValue <= eventToTime)
+      ) {
+        return true;
+      }
+    }
+    return false;
   };
 
   return (

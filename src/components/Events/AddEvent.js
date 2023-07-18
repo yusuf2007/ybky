@@ -43,6 +43,7 @@ function AddEvent(props) {
           to={enteredToTime}
           fromTime={getFromTime}
           toTime={getToTime}
+          events={props.events}
         />
       </div>
       <div>
