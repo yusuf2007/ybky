@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AddEvent from "./components/Events/AddEvent";
+import EventsList from "./components/Events/EventsList";
+import "./App.css"; // Import the CSS file for App styles
 
 function App() {
+  const [eventsList, setEventsList] = useState([]);
+
+  const addEventHandler = (name, from, to) => {
+    setEventsList((prevEventsList) => {
+      return [
+        ...prevEventsList,
+        { name: name, from: from, to: to, id: Math.random().toString() },
+      ];
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Event Planner</h1>
+      <AddEvent onAddEvent={addEventHandler} />
+      <EventsList events={eventsList} />
     </div>
   );
 }

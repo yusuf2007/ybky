@@ -1,0 +1,55 @@
+.event-card {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-time-select {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.event-time-select span {
+  margin-right: 10px;
+}
+
+.white-text {
+  color: white;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white; /* Set text color to white */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
