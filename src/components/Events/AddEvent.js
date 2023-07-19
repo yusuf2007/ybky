@@ -5,7 +5,7 @@ import "./AddEvent.css"; // Import the CSS file for AddEvent styles
 function AddEvent(props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredFromTime, setEnteredFromTime] = useState("9");
-  const [enteredToTime, setEnteredToTime] = useState("9");
+  const [enteredToTime, setEnteredToTime] = useState("10");
   const [error, setError] = useState(false);
 
   const submitHandler = (event) => {
@@ -20,7 +20,7 @@ function AddEvent(props) {
     props.onAddEvent(enteredName, enteredFromTime, enteredToTime);
     setEnteredName("");
     setEnteredFromTime("9");
-    setEnteredToTime("9");
+    setEnteredToTime("10");
   };
 
   const getFromTime = (data) => {
