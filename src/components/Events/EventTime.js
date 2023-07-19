@@ -30,8 +30,8 @@ function EventTime(props) {
     return timeOptions.map((time) => {
       const timeValue = parseInt(time, 10);
       const isDisabled =
-        timeValue <= fromTimeValue ||
-        isTimeRangeOverlapping(fromTimeValue, timeValue);
+        timeValue <= fromTimeValue || // first condition
+        isTimeRangeOverlapping(fromTimeValue, timeValue); // second condition
       return (
         <option key={time} value={time} disabled={isDisabled}>
           {time}:00
@@ -59,7 +59,7 @@ function EventTime(props) {
     <React.Fragment>
       <div className="event-time-select">
         <span className="white-text">From</span>
-        <select onChange={fromTimeSubmit} name="from_time" value={props.from}>
+        <select onChange={fromTimeSubmit} value={props.from}>
           <option value="9">9:00</option>
           <option value="10">10:00</option>
           <option value="11">11:00</option>
@@ -76,7 +76,7 @@ function EventTime(props) {
       </div>
       <div className="event-time-select">
         <span className="white-text">To</span>
-        <select onChange={toTimeSubmit} name="to_time" value={props.to}>
+        <select onChange={toTimeSubmit} value={props.to}>
           {generateToOptions()}
         </select>
       </div>
