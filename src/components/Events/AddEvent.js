@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EventTime from "./EventTime";
 import "./AddEvent.css"; // Import the CSS file for AddEvent styles
+import ErrorModal from "../UI/ErrorModal.js"; // ignore
 
 function AddEvent(props) {
   const [enteredName, setEnteredName] = useState("");
@@ -12,7 +13,17 @@ function AddEvent(props) {
     event.preventDefault();
 
     if (enteredName.trim() === "") {
-      setError(true);
+      setError({
+        title: "Error",
+        message: "Inavlid Name",
+      });
+      return;
+    }
+    if (enteredFromTime >= enteredToTime) {
+      setError({
+        title: "Error",
+        message: "Inavlid Time",
+      });
       return;
     }
 
@@ -35,6 +46,10 @@ function AddEvent(props) {
     setEnteredName(event.target.value);
   };
 
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
     <form className="event-form" onSubmit={submitHandler}>
       <div className="event-time">
@@ -49,7 +64,13 @@ function AddEvent(props) {
       <div>
         <label className="white-text">Event Name:</label>
         <input type="text" onChange={getName} value={enteredName} />
-        {error && <p className="error">Invalid Name</p>}
+        {error && (
+          <ErrorModal
+            title={error.title}
+            message={error.message}
+            onConfirm={errorHandler}
+          />
+        )}
       </div>
       <div>
         <button type="submit">Add Event</button>
