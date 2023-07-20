@@ -13,6 +13,7 @@ function App() {
         { name: name, from: from, to: to, id: Math.random().toString() },
       ];
     });
+    localStorage.setItem("Keyname", eventsList);
   };
 
   return (

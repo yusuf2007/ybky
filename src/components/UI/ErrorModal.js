@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Card from "./Card";
 import "./ErrorModal.css";
 
 const Backdrop = (props) => {
@@ -10,7 +9,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <Card className="modal">
+    <div className="modal">
       <header className="header">
         <h2>{props.title}</h2>
       </header>
@@ -20,7 +19,7 @@ const ModalOverlay = (props) => {
       <footer className="actions">
         <button onClick={props.onConfirm}>Okay</button>
       </footer>
-    </Card>
+    </div>
   );
 };
 
