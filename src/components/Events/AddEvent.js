@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EventTime from "./EventTime";
 import "./AddEvent.css"; // Import the CSS file for AddEvent styles
-import ErrorModal from "../UI/ErrorModal.js"; // ignore
+import ErrorModal from "../UI/ErrorModal";
 
 function AddEvent(props) {
   const [enteredName, setEnteredName] = useState("");
@@ -12,17 +12,24 @@ function AddEvent(props) {
   const submitHandler = (event) => {
     event.preventDefault();
 
+    if (enteredName.trim() === "" && enteredFromTime >= enteredToTime) {
+      setError({
+        title: "Error",
+        message: "Inavlid Name and Time.",
+      });
+      return;
+    }
     if (enteredName.trim() === "") {
       setError({
         title: "Error",
-        message: "Inavlid Name",
+        message: "Inavlid Name.",
       });
       return;
     }
     if (enteredFromTime >= enteredToTime) {
       setError({
         title: "Error",
-        message: "Inavlid Time",
+        message: "Inavlid Time.",
       });
       return;
     }
