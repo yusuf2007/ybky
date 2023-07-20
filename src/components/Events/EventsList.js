@@ -12,6 +12,9 @@ function EventsList(props) {
             <div>
               {event.from}:00 - {event.to}:00
             </div>
+            <button onClick={() => props.onDeleteEvent(event.id)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>

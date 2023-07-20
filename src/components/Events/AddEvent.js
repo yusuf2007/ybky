@@ -62,7 +62,7 @@ function AddEvent(props) {
         />
       </div>
       <div>
-        <label className="white-text">Event Name:</label>
+        <label className="white-text">{props.title}</label>
         <input type="text" onChange={getName} value={enteredName} />
         {error && (
           <ErrorModal

@@ -1,0 +1,26 @@
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.main h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white; /* Set text color to white */
+}
+
+.back-btn {
+  display: inline-block; /* Display as an inline-block element */
+  margin-bottom: 20px; /* Add some space between the button and the elements above it */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
