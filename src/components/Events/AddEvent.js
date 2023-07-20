@@ -6,19 +6,12 @@ import ErrorModal from "../UI/ErrorModal";
 function AddEvent(props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredFromTime, setEnteredFromTime] = useState("9");
-  const [enteredToTime, setEnteredToTime] = useState("10");
+  const [enteredToTime, setEnteredToTime] = useState("9");
   const [error, setError] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if (enteredName.trim() === "" && enteredFromTime >= enteredToTime) {
-      setError({
-        title: "Error",
-        message: "Inavlid Name and Time.",
-      });
-      return;
-    }
     if (enteredName.trim() === "") {
       setError({
         title: "Error",
@@ -38,7 +31,7 @@ function AddEvent(props) {
     props.onAddEvent(enteredName, enteredFromTime, enteredToTime);
     setEnteredName("");
     setEnteredFromTime("9");
-    setEnteredToTime("10");
+    setEnteredToTime("9");
   };
 
   const getFromTime = (data) => {
