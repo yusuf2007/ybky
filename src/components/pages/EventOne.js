@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 function EventOne(props) {
   const [eventsList, setEventsList] = useState([]);
 
-  const title = "Focus:";
-
   const addEventHandler = (name, from, to) => {
     setEventsList((prevEventsList) => {
       return [
